@@ -16,7 +16,7 @@ export default function App() {
     setTodoList((prev) => [
       ...prev,
       {
-        title: title,
+        title,
         id: crypto.randomUUID(),
       },
     ]);
@@ -48,16 +48,14 @@ export default function App() {
         </div>
       </form>
       <ul>
-        {todoList.map(({ title, id }) => {
-          return (
-            <li key={id}>
-              <span>{title}</span>
-              <button type="button" onClick={() => deleteTodo(id)}>
-                Delete
-              </button>
-            </li>
-          );
-        })}
+        {todoList.map(({ title, id }) => (
+          <li key={id}>
+            <span>{title}</span>
+            <button type="button" onClick={() => deleteTodo(id)}>
+              Delete
+            </button>
+          </li>
+        ))}
       </ul>
     </div>
   );
